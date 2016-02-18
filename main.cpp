@@ -13,45 +13,81 @@ using namespace std;
 //Devuelve una direccion de memoria que apunte al apuntador "a"
 int** obtenerApuntador(int*a)
 {
-    return NULL;
+    int **apuntador;
+    apuntador= &a;
+    return apuntador;
 }
 
 //Devuelve true si y solo si la primera letra de "cadena" es mayuscula
 bool esMayuscula(char*cadena)
 {
-    return false;
+    if((int)cadena[0] >64 && (int)cadena[0] < 90)
+        return true;
+    else
+        return false;
 }
+
+
 
 //Escribe el contendio del arreglo "valores" en el archivo con nombre "nombre_archivo" dado su tamano
 void escribir(string nombre_archivo,int* valores, int tamano)
 {
+    ofstream out (nombre_archivo.c_str());
+    for (int i=0; i<tamano;i++){
+        out<<valores[i]<<endl;
+        out.close();
+    }
 }
 
 //Lee y devuelve el contenido del archivo con nombre "nombre_archivo" tal y como fue escrito en la funcion "escribir()"
 int* leer(string nombre_archivo)
 {
+//    string* acum;
+//    for(int x=0;x<nombre_archivo.size();x++)
+//    {
+//        acum+=nombre_archivo[x];
+//    }
+//    return acum.c_str();
 }
+
 
 //Selecciona y devuelve unicamente los valores pares de "mi_vector"
 vector<int> seleccionarPares(vector<int>mi_vector)
 {
     vector<int>respuesta;
+    for(int i=0; i< mi_vector.size();i++){
+        if((mi_vector[i]%2)==0){
+            respuesta.push_back(mi_vector[i]);
+        }
+    }
     return respuesta;
 }
+
+
 
 //Devuelve verdadero si y solo si "mi_vector" es una succecion creciente de numeros naturales
 //https://es.wikipedia.org/wiki/Sucesi%C3%B3n_matem%C3%A1tica#Sucesi.C3.B3n_creciente
 bool esSuccecionMonotona(vector<int>mi_vector)
 {
-    return false;
+//    int numeroSucecion=mi_vector[0];
+//    for(int i=0; i< mi_vector.size();i++){
+//        if(numeroSucecion==(mi_vector[i+1]-mi_vector[i])){
+//        if(mi_vector.size()==i){
+//            return true;
+//            }
+//        }
+//    }
+//    return false;
 }
+
 
 //Invierte y devuelve el contenido de "lista"
 template<typename T>
 list<T> invertir(list<T>lista)
 {
     list<T>respuesta;
-    return respuesta;
+//    respuesta= lista.reverse();
+    return lista.reverse();
 }
 
 ///////////////////////////////////////////////////////////////////
